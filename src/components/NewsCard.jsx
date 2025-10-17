@@ -1,9 +1,10 @@
 import React from "react";
 import { FaEye, FaShareAlt, FaStar } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa6";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
-    const { title, image_url, author, details, rating, total_view, tags } = news;
+    const { id, title, image_url, author, details, rating, total_view, tags } = news;
 
     return (
         <div className="card bg-base-100  hover:shadow-2xl transition-all duration-300">
@@ -49,9 +50,9 @@ const NewsCard = ({ news }) => {
                 <h2 className="card-title text-lg font-bold text-gray-900">{title}</h2>
                 <p className="text-sm text-gray-700">
                     {details.slice(0, 180)}...
-                    <a href="#" className="text-blue-500 font-semibold ml-1">
+                    <Link to={`/news-details/${id}`} href="#" className="text-blue-500 font-semibold ml-1">
                         Read More
-                    </a>
+                    </Link>
                 </p>
 
                 {/* Tags */}
